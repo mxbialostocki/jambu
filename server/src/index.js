@@ -1,5 +1,6 @@
-require('dotenv').config()
+require('dotenv').config({ path: '../server/.env' })
 
+const path = require('path')
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -11,6 +12,7 @@ const schema = require('./graphql/schema')
 // Call in database connection
 setupDB(value => console.log(value))
 
+app.use(express.static(path.join(__dirname, '../client/public')))
 app.use(cors())
 app.use(
   '/graphql',

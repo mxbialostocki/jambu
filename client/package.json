@@ -4,8 +4,9 @@
   "description": "JAMBU Front-End Directory",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack",
-    "test": "test"
+    "start": "webpack && node ../server/src/index.js",
+    "test": "test",
+    "dev": "webpack-dev-server"
   },
   "author": "julia-mareike mxbialostocki",
   "license": "ISC",
