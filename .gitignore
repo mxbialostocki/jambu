@@ -3,3 +3,9 @@ node_modules
 
 # environment variables
 .env
+
+# bundles
+client/public/bundle.js
+
+# graphql generations
+**/__generated__/**
