@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack && node ../server/src/index.js",
     "test": "test",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "relay": "relay-compiler --src ./src --schema ./data/schema.graphql"
   },
   "author": "julia-mareike mxbialostocki",
   "license": "ISC",
@@ -14,12 +15,19 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "relay"
     ]
   },
   "dependencies": {
+    "babel-plugin-relay": "^9.0.0",
+    "graphql": "^15.0.0",
     "nodemon": "^2.0.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "relay-compiler": "^9.0.0",
+    "relay-config": "^9.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
