@@ -7,6 +7,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   mode: 'development',
+  watch: true,
   module: {
     rules: [{
       test: /\.jsx?$/,
@@ -15,7 +16,7 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['.js', 'jsx']
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     contentBase: './public'
