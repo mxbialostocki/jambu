@@ -5,10 +5,12 @@ import getNotesQuery from '../graphql/queries/getNotes'
 
 // component imports
 import CreateNote from './CreateNote.jsx'
+import DisplayNotes from './DisplayNotes.jsx'
 
 const Daemon = () => {
   return (
     <React.Fragment>
+      <CreateNote />
       <QueryRenderer
         environment={environment}
         query={getNotesQuery}
@@ -21,10 +23,9 @@ const Daemon = () => {
           if (!props) {
             return <div>`loading...`</div>
           }
-          return <div>`components go here`</div>
+          return <DisplayNotes {...props} />
         }}
       />
-      <CreateNote />
     </React.Fragment>
   )
 }

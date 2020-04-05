@@ -4,7 +4,7 @@
   "description": "JAMBU Front-End Directory",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack && node ../server/src/index.js",
+    "start": "webpack & nodemon ../server/src/index.js --watch ../server/src",
     "test": "test",
     "dev": "webpack-dev-server",
     "relay": "relay-compiler --src ./src --schema ./data/schema.graphql"
@@ -23,7 +23,6 @@
   "dependencies": {
     "babel-plugin-relay": "^9.0.0",
     "graphql": "^15.0.0",
-    "nodemon": "^2.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-relay": "^9.0.0",
@@ -35,6 +34,7 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
