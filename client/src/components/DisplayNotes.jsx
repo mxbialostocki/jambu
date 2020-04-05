@@ -5,7 +5,7 @@ import Note from './Note.jsx'
 const DisplayNotes = ({ notes }) => {
     return (
       notes.map(note => {
-        return <Note content={note.content} />
+        return <Note note={note} />
       })
     )
 }

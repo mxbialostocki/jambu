@@ -1,12 +1,23 @@
 import React from 'react'
 
-const Note = ({ content }) => {
+import deleteNoteMutation from '../graphql/mutations/deleteNote'
+
+const Note = ({ note }) => {
+  const { content, _id } = note
+
   return (
-    <div>
+    <React.Fragment>
       <p>
         {content}
       </p>
-    </div>
+      <button onClick={() => {
+        deleteNoteMutation(_id)
+        }}
+      >
+        Delete
+      </button>
+    </React.Fragment>
+
   )
 }
 
