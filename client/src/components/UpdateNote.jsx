@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
-const UpdateNote = ({ note }) => {
+import updateNote from '../graphql/mutations/updateNote'
+
+const UpdateNote = ({ note, setEditing }) => {
   const { _id, content } = note
 
   const [ inputState, setInputState ] = useState(content)
@@ -8,7 +10,10 @@ const UpdateNote = ({ note }) => {
   return (
     <React.Fragment>
       <input value={inputState} onChange={event => setInputState(event.target.value)}/>
-      <button onClick={() => {}}>
+      <button onClick={() => {
+        updateNote(_id, inputState)
+        setEditing(false)
+      }}>
         Update
       </button>
     </React.Fragment>

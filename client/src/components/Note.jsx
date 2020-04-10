@@ -6,6 +6,7 @@ import UpdateNote from './UpdateNote'
 const Note = ({ note }) => {
   const { content, _id } = note
   const [ editing, setEditing ] = useState(false)
+  const buttonLabel = editing ? 'cancel' : 'edit'
 
   return (
     <React.Fragment>
@@ -21,11 +22,10 @@ const Note = ({ note }) => {
       <button onClick={() => {
         setEditing(!editing)
       }}>
-        Edit
+        {buttonLabel}
       </button>
-      {editing && <UpdateNote note={note}/>}
+      {editing && <UpdateNote note={note} setEditing={setEditing}/>}
     </React.Fragment>
-
   )
 }
 
