@@ -2,8 +2,15 @@ const MongoClient = require('mongodb').MongoClient
 
 let mongoDB
 
+const dbUsername = process.env.MONGO_DATABASE_USERNAME
+const dbPassword = process.env.MONGO_DATABASE_PASSWORD
+const dbCluster = process.env.MONGO_CLUSTER
+
 const setupDB = callback => {
-  const uri = `mongodb+srv://dbAdmin:${process.env.MONGO_ADMIN_PASSWORD}@cluster0-ysmyo.gcp.mongodb.net/test?retryWrites=true&w=majority`
+  if (!dbUsername || !dbPassword || !dbCluster ) {
+    return callback('Mongo credentials undefined')
+  }
+  const uri = `mongodb+srv://${dbUsername}:${dbPassword}@${dbCluster}.mongodb.net/test?retryWrites=true&w=majority`
 
   MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
     mongoDB = client.db('jambu-server')
