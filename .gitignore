@@ -9,3 +9,4 @@ client/public/bundle.js
 
 # graphql generations
 **/__generated__/**
+client/data/schema.graphql
