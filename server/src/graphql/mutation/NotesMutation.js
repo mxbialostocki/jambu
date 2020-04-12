@@ -14,7 +14,8 @@ const CreateNoteMutation = {
   },
   resolve: async (_, { title, content }) => {
     const noteService = new NoteService()
-    const newNote = await noteService.createNote({ title, content })
+    const dateCreated = Date.now()
+    const newNote = await noteService.createNote({ title, content, dateCreated })
 
     return newNote
   }
@@ -44,7 +45,8 @@ const UpdateNoteMutation = {
   },
   resolve: async (_, { _id, title, content }) => {
     const noteService = new NoteService()
-    const updatedNote = await noteService.updateNote(_id, { title, content })
+    const dateModified = Date.now()
+    const updatedNote = await noteService.updateNote(_id, { title, content, dateModified })
 
     return updatedNote
   }

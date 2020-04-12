@@ -5,7 +5,9 @@ const noteType = new GraphQLObjectType({
   fields: {
     _id: { type: GraphQLID },
     title: { type: GraphQLString },
-    content: { type: GraphQLString }
+    content: { type: GraphQLString },
+    dateCreated: { type: GraphQLString },
+    dateModified: { type: GraphQLString }
   }
 })
 
