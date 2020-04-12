@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from 'semantic-ui-react'
 
 import deleteNoteMutation from '../graphql/mutations/deleteNote'
 import UpdateNote from './UpdateNote'
@@ -16,17 +17,17 @@ const Note = ({ note }) => {
       <p>
         {content}
       </p>
-      <button onClick={() => {
+      <Button onClick={() => {
         deleteNoteMutation(_id)
       }}
       >
         Delete
-      </button>
-      <button onClick={() => {
+      </Button>
+      <Button onClick={() => {
         setEditing(!editing)
       }}>
         {buttonLabel}
-      </button>
+      </Button>
       {editing && <UpdateNote note={note} setEditing={setEditing}/>}
     </React.Fragment>
   )

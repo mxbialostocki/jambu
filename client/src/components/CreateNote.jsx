@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button, Input } from 'semantic-ui-react'
 
 import createNoteMutation from '../graphql/mutations/createNote'
 
@@ -7,9 +8,9 @@ const CreateNote = () => {
   const [newNoteContent, setNewNoteContent] = useState('')
   return (
     <React.Fragment>
-      <input type="text" value={newNoteTitle} onChange={(event) => { setNewNoteTitle(event.target.value) }} placeholder="write Note title here..." />
-      <input type="text" value={newNoteContent} onChange={(event) => { setNewNoteContent(event.target.value) }} placeholder="write Note content here..." />
-      <button onClick={() => {
+      <Input transparent size="massive"  type="text" value={newNoteTitle} onChange={(event) => { setNewNoteTitle(event.target.value) }} placeholder="write Note title here..." />
+      <Input transparent size="massive"  type="text" value={newNoteContent} onChange={(event) => { setNewNoteContent(event.target.value) }} placeholder="write Note content here..." />
+      <Button size="massive" onClick={() => {
         if (newNoteTitle && newNoteContent) {
           createNoteMutation(newNoteTitle, newNoteContent)
           setNewNoteTitle('')
@@ -18,7 +19,7 @@ const CreateNote = () => {
       }}
       >
         create Note
-      </button>
+      </Button>
     </React.Fragment>
   )
 }
