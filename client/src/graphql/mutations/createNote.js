@@ -7,6 +7,7 @@ const mutation = graphql`
       _id
       title
       content
+      dateCreated
     }
   }
 `

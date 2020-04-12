@@ -6,6 +6,8 @@ const getNotesQuery = graphql`
       _id
       title
       content
+      dateCreated
+      dateModified
     }
   }
 `
