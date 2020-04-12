@@ -4,6 +4,7 @@ const noteType = new GraphQLObjectType({
   name: 'Note',
   fields: {
     _id: { type: GraphQLID },
+    title: { type: GraphQLString },
     content: { type: GraphQLString }
   }
 })

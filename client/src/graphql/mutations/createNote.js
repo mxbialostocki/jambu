@@ -2,16 +2,18 @@ import { commitMutation, graphql } from 'react-relay'
 import environment from '../../environment'
 
 const mutation = graphql`
-  mutation createNoteMutation($content: String) {
-    createNote(content: $content) {
+  mutation createNoteMutation($title: String, $content: String) {
+    createNote(title: $title, content: $content) {
       _id
+      title
       content
     }
   }
 `
 
-function createNoteMutation (content) {
+function createNoteMutation (title, content) {
   const variables = {
+    title,
     content
   }
 

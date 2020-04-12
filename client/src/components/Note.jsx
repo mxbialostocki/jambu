@@ -4,12 +4,15 @@ import deleteNoteMutation from '../graphql/mutations/deleteNote'
 import UpdateNote from './UpdateNote'
 
 const Note = ({ note }) => {
-  const { content, _id } = note
+  const { _id, title, content } = note
   const [ editing, setEditing ] = useState(false)
   const buttonLabel = editing ? 'cancel' : 'edit'
 
   return (
     <React.Fragment>
+      <p>
+        {title}
+      </p>
       <p>
         {content}
       </p>

@@ -4,6 +4,7 @@ const getNotesQuery = graphql`
   query getNotesQuery {
     notes {
       _id
+      title
       content
     }
   }

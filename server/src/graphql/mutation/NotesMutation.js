@@ -2,8 +2,6 @@
 const { noteType } = require('../noteTypes')
 const {
   GraphQLString,
-  GraphQLBoolean,
-  GraphQLInt,
   GraphQLID
 } = require('graphql')
 const NoteService = require('../../services/NoteService')
@@ -11,11 +9,12 @@ const NoteService = require('../../services/NoteService')
 const CreateNoteMutation = {
   type: noteType,
   args: {
+    title: { type: GraphQLString },
     content: { type: GraphQLString }
   },
-  resolve: async (_, { content }) => {
+  resolve: async (_, { title, content }) => {
     const noteService = new NoteService()
-    const newNote = await noteService.createNote({ content })
+    const newNote = await noteService.createNote({ title, content })
 
     return newNote
   }
@@ -40,11 +39,12 @@ const UpdateNoteMutation = {
   type: noteType,
   args: {
     _id: { type: GraphQLID },
+    title: { type: GraphQLString },
     content: { type: GraphQLString }
   },
-  resolve: async (_, { _id, content }) => {
+  resolve: async (_, { _id, title, content }) => {
     const noteService = new NoteService()
-    const updatedNote = await noteService.updateNote(_id, { content })
+    const updatedNote = await noteService.updateNote(_id, { title, content })
 
     return updatedNote
   }
