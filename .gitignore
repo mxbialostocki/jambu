@@ -13,4 +13,3 @@ client/public/images
 
 # graphql generations
 **/__generated__/**
-client/data/schema.graphql
