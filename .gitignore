@@ -7,6 +7,10 @@ node_modules
 # bundles
 client/public/bundle.js
 
+# fonts and images
+client/public/fonts
+client/public/images
+
 # graphql generations
 **/__generated__/**
 client/data/schema.graphql

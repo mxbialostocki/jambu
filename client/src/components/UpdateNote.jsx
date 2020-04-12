@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button, Input, Form, TextArea } from 'semantic-ui-react'
 
 import updateNote from '../graphql/mutations/updateNote'
 
@@ -10,14 +11,16 @@ const UpdateNote = ({ note, setEditing }) => {
 
   return (
     <React.Fragment>
-      <input value={titleInputState} onChange={event => setTitleInputState(event.target.value)} />
-      <input value={contentInputState} onChange={event => setContentInputState(event.target.value)} />
-      <button onClick={() => {
-        updateNote(_id, titleInputState, contentInputState)
-        setEditing(false)
-      }}>
-        Update
-      </button>
+      <Form>
+        <Input transparent value={titleInputState} onChange={event => setTitleInputState(event.target.value)} />
+        <TextArea transparent value={contentInputState} onChange={event => setContentInputState(event.target.value)} />
+        <Button onClick={() => {
+          updateNote(_id, titleInputState, contentInputState)
+          setEditing(false)
+        }}>
+          Update
+        </Button>
+      </Form>
     </React.Fragment>
   )
 }
