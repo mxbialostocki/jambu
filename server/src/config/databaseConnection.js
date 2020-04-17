@@ -17,7 +17,7 @@ const setupDB = callback => {
     if (err) {
       return callback(err)
     } else {
-      return callback('Database is sweet')
+      return callback('Database is connected')
     }
   })
 }

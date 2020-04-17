@@ -2,12 +2,12 @@ import { commitMutation, graphql } from 'react-relay'
 import environment from '../../environment'
 
 const mutation = graphql`
-  mutation deleteNoteMutation($_id: ID) {
-    deleteNote(_id: $_id)
+  mutation deletePxpMutation($_id: ID) {
+    deletePxp(_id: $_id)
   }
 `
 
-function deleteNoteMutation (_id) {
+function deletePxpMutation (_id) {
   const variables = {
     _id
   }
@@ -20,14 +20,14 @@ function deleteNoteMutation (_id) {
     },
     updater: store => {
       const root = store.getRoot()
-      const notes = root.getLinkedRecords('notes')
-      const newNotes = notes.filter(v => v.getValue('_id') !== _id)
+      const pxps = root.getLinkedRecords('pxps')
+      const newPxps = pxps.filter(v => v.getValue('_id') !== _id)
 
-      root.setLinkedRecords(newNotes, 'notes')
+      root.setLinkedRecords(newPxps, 'pxps')
     },
 
     onError: err => console.error(err)
   })
 }
 
-export default deleteNoteMutation
+export default deletePxpMutation

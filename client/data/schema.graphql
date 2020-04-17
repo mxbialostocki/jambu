@@ -1,10 +1,10 @@
 type Mutation {
-  createNote(title: String, content: String): Note
-  deleteNote(_id: ID): ID
-  updateNote(_id: ID, title: String, content: String): Note
+  createPxp(title: String, content: String): Pxp
+  deletePxp(_id: ID): ID
+  updatePxp(_id: ID, title: String, content: String): Pxp
 }
 
-type Note {
+type Pxp {
   _id: ID
   title: String
   content: String
@@ -13,5 +13,5 @@ type Note {
 }
 
 type Query {
-  notes: [Note]
+  pxps: [Pxp]
 }

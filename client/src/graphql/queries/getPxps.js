@@ -1,8 +1,8 @@
 import { graphql } from 'react-relay'
 
-const getNotesQuery = graphql`
-  query getNotesQuery {
-    notes {
+const getPxpsQuery = graphql`
+  query getPxpsQuery {
+    pxps {
       _id
       title
       content
@@ -12,4 +12,4 @@ const getNotesQuery = graphql`
   }
 `
 
-export default getNotesQuery
+export default getPxpsQuery
