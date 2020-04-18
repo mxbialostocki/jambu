@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Button, Input, Form, TextArea } from 'semantic-ui-react'
 
-import updateNote from '../graphql/mutations/updateNote'
+import updatePxp from '../graphql/mutations/updatePxp'
 
-const UpdateNote = ({ note, setEditing }) => {
-  const { _id, title, content } = note
+const UpdatePxp = ({ pxp, setEditing }) => {
+  const { _id, title, content } = pxp
 
   const [ titleInputState, setTitleInputState ] = useState(title)
   const [ contentInputState, setContentInputState ] = useState(content)
@@ -15,7 +15,7 @@ const UpdateNote = ({ note, setEditing }) => {
         <Input transparent value={titleInputState} onChange={event => setTitleInputState(event.target.value)} />
         <TextArea transparent value={contentInputState} onChange={event => setContentInputState(event.target.value)} />
         <Button onClick={() => {
-          updateNote(_id, titleInputState, contentInputState)
+          updatePxp(_id, titleInputState, contentInputState)
           setEditing(false)
         }}>
           Update
@@ -25,4 +25,4 @@ const UpdateNote = ({ note, setEditing }) => {
   )
 }
 
-export default UpdateNote
+export default UpdatePxp

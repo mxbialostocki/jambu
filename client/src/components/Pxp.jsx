@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Button } from 'semantic-ui-react'
 
-import deleteNoteMutation from '../graphql/mutations/deleteNote'
-import UpdateNote from './UpdateNote'
+import deletePxpMutation from '../graphql/mutations/deletePxp'
+import UpdatePxp from './UpdatePxp'
 
-const Note = ({ note }) => {
-  const { _id, title, content } = note
+const Pxp = ({ pxp }) => {
+  const { _id, title, content } = pxp
   const [ editing, setEditing ] = useState(false)
   const buttonLabel = editing ? 'cancel' : 'edit'
 
@@ -18,7 +18,7 @@ const Note = ({ note }) => {
         {content}
       </p>
       <Button onClick={() => {
-        deleteNoteMutation(_id)
+        deletePxpMutation(_id)
       }}
       >
         Delete
@@ -28,9 +28,9 @@ const Note = ({ note }) => {
       }}>
         {buttonLabel}
       </Button>
-      {editing && <UpdateNote note={note} setEditing={setEditing}/>}
+      {editing && <UpdatePxp pxp={pxp} setEditing={setEditing}/>}
     </React.Fragment>
   )
 }
 
-export default Note
+export default Pxp

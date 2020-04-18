@@ -2,20 +2,18 @@ import { commitMutation, graphql } from 'react-relay'
 import environment from '../../environment'
 
 const mutation = graphql`
-  mutation updateNoteMutation($_id: ID, $title: String, $content: String) {
-    updateNote(_id: $_id, title: $title, content: $content) {
+  mutation createPxpMutation($title: String, $content: String) {
+    createPxp(title: $title, content: $content) {
       _id
       title
       content
       dateCreated
-      dateModified
     }
   }
 `
 
-function updateNoteMutation (_id, title, content) {
+function createPxpMutation (title, content) {
   const variables = {
-    _id,
     title,
     content
   }
@@ -27,15 +25,15 @@ function updateNoteMutation (_id, title, content) {
       console.log('Response received from server.')
     },
     updater: store => {
-      const newUpdatedNote = store.getRootField('updateNote')
+      const payload = store.getRootField('createPxp')
       const root = store.getRoot()
-      const notes = root.getLinkedRecords('notes')
-      const newNotes = notes.filter(v => v.getValue('_id') !== _id)
+      const pxps = root.getLinkedRecords('pxps')
 
-      root.setLinkedRecords([...newNotes, newUpdatedNote], 'notes')
+      const newPxps = [...pxps, payload]
+      root.setLinkedRecords(newPxps, 'pxps')
     },
     onError: err => console.error(err)
   })
 }
 
-export default updateNoteMutation
+export default createPxpMutation
